@@ -1,0 +1,107 @@
+<main>
+  <h1>Angular Signals</h1>
+
+  <section>
+    <h2>Tip Calculator</h2>
+
+    <p class="subtitle">
+      Uses <code>signal</code> with <code>compute</code> & <code>effect</code>.
+    </p>
+
+    <form>
+      <div>
+        <label for="price">Total price:</label>
+        <input #priceInput 
+          type="number" 
+          name="price" id="price" 
+          [ngModel]="price()" 
+          (change)="changeSignal('price', priceInput.value)"
+        >
+      </div>
+
+      <div>
+        <label for="percent">Tip Percentage:</label>
+        <input #percentInput
+          type="number" name="percent" id="tpercentip" 
+          [ngModel]="percent()" 
+          (change)="changeSignal('percent', percentInput.value)"
+        >
+      </div>
+    </form>
+
+    <p class="text-lg">
+      Tip amount: £<span [ngClass]="color()">{{ tip() }}</span>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Incrementor</h2>
+
+    <p class="subtitle">
+      Uses <code>signal</code> and <code>update</code>.
+    </p>
+
+    <p class="mb-2">
+      <span class="primary">{{ count() }}</span> times clicked. 
+    </p>
+
+    <button (click)="incrementCount()">Click Me</button>
+  </section>
+
+  <section>
+    <h2>Mutating Object with Signals</h2>
+
+    <p class="subtitle">
+      Uses <code>signal</code> and <code>mutate</code>.
+    </p>
+
+    <p class="mb-2">Gandalf has received a promotion. Correct his title to reflect this. 🧙🏻‍♂️</p>
+
+    <form>
+      <div>
+        <label for="firstname">Name:</label>
+        <input #firstname 
+          type="text" 
+          name="firstname" id="firstname" 
+          [ngModel]="person().firstname" 
+          (change)="changeObjectSignal('firstname', firstname.value)"
+        >
+      </div>
+
+      <div>
+        <label for="title">Title:</label>
+        <input #title 
+          type="text" 
+          name="title" id="title" 
+          [ngModel]="person().title" 
+          (change)="changeObjectSignal('title', title.value)"
+        >
+      </div>
+
+      <div class="flex">
+        <!-- incorrect -->
+        <svg *ngIf="!answerCorrect()" class="red" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+
+        <svg *ngIf="answerCorrect()" class="primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        
+        <p>He is <span [ngClass]="{
+          'primary': answerCorrect(),
+          'red': !answerCorrect()
+        }">{{ personFullName() }}</span>.</p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<aside>
+  <a href="https://pmcoding.co.uk/" target="_blank" class="flex">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+    </svg> 
+    <span>pmCoding</span>   
+  </a>
+</aside>

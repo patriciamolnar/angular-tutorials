@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto+Mono:wght@200;400&display=swap');
+
+$font: 'Outfit', sans-serif;
+$code: 'Roboto Mono', monospace;
+
+* {
+    font-family: $font;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+code {
+    font-family: $code;
+}
