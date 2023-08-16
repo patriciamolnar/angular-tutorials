@@ -1,0 +1,35 @@
+<main>
+  <h1>Remove duplicate DOM elements</h1>
+
+  <div class="description">
+    <p>
+      Resize the window to see the elements appearing and disappearing. 
+    </p>
+  
+    <p>
+      To confirm only one of the elements is present at a time, you can inspect the DOM.
+      Simply search for "search-me" in the DOM inspector.
+    </p>
+  </div>
+
+  <div class="search-me mobile" *pmRemoveDuplicateDomElement="'hideOnDesktop'">
+    <h2>SHOW ON MOBILE ONLY</h2>
+    <p>I should only be visible on mobile (screens with the width less than 640px)</p>
+  </div>
+
+  <div class="search-me desktop" *pmRemoveDuplicateDomElement="'hideOnMobile'">
+    <h2>SHOW ON DESKTOP (or tablet) ONLY</h2>
+    <p>I should only be visible for screens with a minimum width of 640px</p>
+  </div>
+</main>
+
+<footer>
+  <p class="credit">
+    Made by <a href="https://pmcoding.co.uk/" target="_blank">Patricia Molnar</a>.
+  </p>
+  <p class="social">
+    <a href="https://github.com/patriciamolnar" target="_blank">Github</a> |
+    <a href="https://www.youtube.com/channel/UCnTVj2blZd_9_xpbo2t7ARw" target="_blank">YouTube Tutorials</a> |
+    <a href="https://codepen.io/patriciamolnar" target="_blank">Codepen</a>
+  </p>
+</footer>
