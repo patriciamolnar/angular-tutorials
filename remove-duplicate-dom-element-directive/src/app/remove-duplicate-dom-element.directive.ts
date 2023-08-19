@@ -1,5 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Directive, Inject, Input, PLATFORM_ID, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 
 type Condition = 'hideOnMobile' | 'hideOnDesktop';
 enum ConditionEnum {
@@ -8,29 +7,28 @@ enum ConditionEnum {
 }
 
 @Directive({
-  selector: '[pmRemoveDuplicateDomElement]'
+  	selector: '[pmRemoveDuplicateDomElement]'
 })
 export class RemoveDuplicateDomElementDirective {
-  private isMobile = false;
-  private condition: Condition = ConditionEnum.hideOnMobile;
-  @Input() set pmRemoveDuplicateDomElement(condition: Condition) {
+	private isMobile = false;
+	private condition: Condition = ConditionEnum.hideOnMobile;
+	@Input() set pmRemoveDuplicateDomElement(condition: Condition) {
 		this._updateView(condition);
 		this.renderer.listen('window', 'resize', () => this._getScreenSize());
 	}
 
-  constructor(
-		@Inject(PLATFORM_ID) private platformId: string,
+  	constructor(
 		private templateRef: TemplateRef<any>,
 		private viewContainer: ViewContainerRef,
 		private renderer: Renderer2
 	) {}
 
 
-  ngOnInit(): void {
+  	ngOnInit(): void {
 		this._getScreenSize();
 	}
 
-  private _updateView(condition: Condition) {
+  	private _updateView(condition: Condition) {
 		this.condition = condition;
 		this.viewContainer.clear();
 		if (condition === ConditionEnum.hideOnMobile && this.isMobile) {
@@ -42,13 +40,11 @@ export class RemoveDuplicateDomElementDirective {
 		}
 	}
 
-  private _getScreenSize() {
-		if (isPlatformBrowser(this.platformId)) {
-			const isMobile = window.innerWidth >= 639 ? false : true;
-			if (this.isMobile !== isMobile) {
-				this.isMobile = isMobile;
-				this._updateView(this.condition);
-			}
+  	private _getScreenSize() {
+		const isMobile = window.innerWidth >= 639 ? false : true;
+		if (this.isMobile !== isMobile) {
+			this.isMobile = isMobile;
+			this._updateView(this.condition);
 		}
 	}
 
