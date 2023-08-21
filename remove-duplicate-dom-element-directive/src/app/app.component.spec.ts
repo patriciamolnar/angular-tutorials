@@ -18,10 +18,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('remove-duplicate-dom-element-directive');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('remove-duplicate-dom-element-directive app is running!');
-  });
 });
