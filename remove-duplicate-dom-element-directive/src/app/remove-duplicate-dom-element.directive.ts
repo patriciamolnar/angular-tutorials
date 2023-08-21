@@ -1,10 +1,11 @@
 import { Directive, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 
-type Condition = 'hideOnMobile' | 'hideOnDesktop';
 enum ConditionEnum {
 	hideOnMobile = 'hideOnMobile',
 	hideOnDesktop = 'hideOnDesktop',
 }
+
+type Condition = `${ConditionEnum}`; // "hideOnMobile" | "hideOnDesktop"
 
 @Directive({
   	selector: '[pmRemoveDuplicateDomElement]'
@@ -41,7 +42,7 @@ export class RemoveDuplicateDomElementDirective {
 	}
 
   	private _getScreenSize() {
-		const isMobile = window.innerWidth >= 639 ? false : true;
+		const isMobile = window.innerWidth < 640;
 		if (this.isMobile !== isMobile) {
 			this.isMobile = isMobile;
 			this._updateView(this.condition);
