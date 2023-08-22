@@ -26,8 +26,9 @@ a {
     background-color: $primary;
     text-decoration: none;
     color: #FFF;
-    padding: 0.5em 1em;
+    padding: 0.5em 1em 0.6em;
     border-radius: 1.5em;
+    line-height: 1;
     cursor: pointer;
 
     &:hover {
