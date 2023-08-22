@@ -7,7 +7,7 @@ export const routes: Routes = [
         path: ':name', 
         component: HomeComponent,
         data: {
-            title: "Look up name meaning "
+            title: "Search Name Meanings"
         }
     },
 ];

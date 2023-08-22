@@ -1,17 +1,29 @@
-<h1>{{ title }}</h1>
+<main>
+    <h1>{{ title }}</h1>
 
-<p>You searched for: {{ name }}.</p>
+    <p class="text-lg">
+        You searched for:
+        <span class="capitalise primary-text bold">{{ name }}</span>.
+    </p>
 
-<div>
-    <a *ngFor="let name of names" [routerLink]="['/', name.value.toLowerCase()]">{{ name.value }} </a>
-</div>
+    <h2 class="border">Select name:</h2>
+    <div class="flex">
+        <a *ngFor="let name of names" [routerLink]="['/', name.value.toLowerCase()]">{{ name.value }} </a>
+    </div>
 
-<div *ngIf="getNameData() as data; else noResult">
-    <h2>{{ data.value }}</h2>
-    <p>Gender: {{ data.gender }}</p>
-    <p>Meaning: {{ data.meaning }}</p>
-</div>
+    <ng-container *ngIf="getNameData() as data; else noResult">
+        <div class="border result">
+            <h2 class="primary-text">{{ data.value }}</h2>
+            &middot;
+            <p> "{{ data.meaning }}" </p>
+            &middot;
+            <p class="gray-text"> {{ data.gender === "F" ? "female" : "male"}} </p>
+        </div>
+    </ng-container>
 
-<ng-template #noResult>
-    <p>The name you searched for is not on file.</p>
-</ng-template>
+   
+
+    <ng-template #noResult>
+        <p class="border">The name you searched for is not on file.</p>
+    </ng-template>
+</main>
