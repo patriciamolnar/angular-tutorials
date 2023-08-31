@@ -16,8 +16,11 @@ export class AppComponent {
 
   send(form: NgForm) {
     if(form.invalid) return; 
-    this._recaptchaV3Srv.execute('importantAction').subscribe((token: string) => {
-      const body = JSON.stringify({ token });
+    this._recaptchaV3Srv.execute('register_interest_form_submit').subscribe((token: string) => {
+      const body = JSON.stringify({
+        token: token, 
+        action: 'register_interest_form_submit'
+      });
 
       const httpOptions = {
         headers: new HttpHeaders({

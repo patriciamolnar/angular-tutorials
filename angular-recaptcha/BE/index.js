@@ -16,7 +16,7 @@ app.use(parser.json());
 
 app.post('/verify', (req, res) => {
     axios.post(
-        `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&remoteip=${req.ip}&response=${req.body.token}`
+        `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&remoteip=${req.ip}&response=${req.body.token}&action=${req.body.action}`
     ).then(response => {
         const { data } = response
         res.json(data);
