@@ -1,4 +1,4 @@
-import { Directive, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, OnInit, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 
 enum ConditionEnum {
 	hideOnMobile = 'hideOnMobile',
@@ -10,7 +10,7 @@ type Condition = `${ConditionEnum}`; // "hideOnMobile" | "hideOnDesktop"
 @Directive({
   	selector: '[pmRemoveDuplicateDomElement]'
 })
-export class RemoveDuplicateDomElementDirective {
+export class RemoveDuplicateDomElementDirective implements OnInit {
 	private isMobile = false;
 	private condition: Condition = ConditionEnum.hideOnMobile;
 	@Input() set pmRemoveDuplicateDomElement(condition: Condition) {
