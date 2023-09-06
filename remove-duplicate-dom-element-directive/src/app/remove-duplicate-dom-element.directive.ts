@@ -11,17 +11,17 @@ type Condition = `${ConditionEnum}`; // "hideOnMobile" | "hideOnDesktop"
   	selector: '[pmRemoveDuplicateDomElement]'
 })
 export class RemoveDuplicateDomElementDirective implements OnInit {
-	private isMobile = false;
-	private condition: Condition = ConditionEnum.hideOnMobile;
+	private _isMobile = false;
+	private _condition: Condition = ConditionEnum.hideOnMobile;
 	@Input() set pmRemoveDuplicateDomElement(condition: Condition) {
 		this._updateView(condition);
-		this.renderer.listen('window', 'resize', () => this._getScreenSize());
+		this._renderer.listen('window', 'resize', () => this._getScreenSize());
 	}
 
   	constructor(
-		private templateRef: TemplateRef<any>,
-		private viewContainer: ViewContainerRef,
-		private renderer: Renderer2
+		private _templateRef: TemplateRef<any>,
+		private _viewContainer: ViewContainerRef,
+		private _renderer: Renderer2
 	) {}
 
 
@@ -30,22 +30,22 @@ export class RemoveDuplicateDomElementDirective implements OnInit {
 	}
 
   	private _updateView(condition: Condition) {
-		this.condition = condition;
-		this.viewContainer.clear();
-		if (condition === ConditionEnum.hideOnMobile && this.isMobile) {
-			this.viewContainer.clear();
-		} else if (condition === ConditionEnum.hideOnDesktop && !this.isMobile) {
-			this.viewContainer.clear();
+		this._condition = condition;
+		this._viewContainer.clear();
+		if (condition === ConditionEnum.hideOnMobile && this._isMobile) {
+			this._viewContainer.clear();
+		} else if (condition === ConditionEnum.hideOnDesktop && !this._isMobile) {
+			this._viewContainer.clear();
 		} else {
-			this.viewContainer.createEmbeddedView(this.templateRef);
+			this._viewContainer.createEmbeddedView(this._templateRef);
 		}
 	}
 
   	private _getScreenSize() {
 		const isMobile = window.innerWidth < 640;
-		if (this.isMobile !== isMobile) {
-			this.isMobile = isMobile;
-			this._updateView(this.condition);
+		if (this._isMobile !== isMobile) {
+			this._isMobile = isMobile;
+			this._updateView(this._condition);
 		}
 	}
 
