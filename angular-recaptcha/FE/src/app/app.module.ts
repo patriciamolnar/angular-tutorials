@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     {
       provide: RECAPTCHA_V3_SITE_KEY,
-      useValue: environment.recaptcha.siteKey
+      useValue: environment.recaptcha_key
     }
   ],
   bootstrap: [AppComponent]
