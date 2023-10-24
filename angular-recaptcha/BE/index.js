@@ -1,8 +1,8 @@
 const express = require('express');
-const cors = require('cors');
-const parser = require('body-parser');
-const axios = require('axios');
-require('dotenv').config();
+const cors = require('cors'); //to avoid cors errors locally
+const parser = require('body-parser'); //request body barsing middleware
+const axios = require('axios'); //to make API requests (could also use fetch if you're using newer version of Node)
+require('dotenv').config(); //to access the .env file
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
