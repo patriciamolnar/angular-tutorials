@@ -1,0 +1,9 @@
+<main>
+  <h1>Angular Custom Password Field</h1>
+
+  {{ loginForm.value | json }}
+  <form [formGroup]="loginForm">
+    <input type="text" formControlName="username">
+    <pm-password-input formControlName="password"></pm-password-input>
+  </form>
+</main>
