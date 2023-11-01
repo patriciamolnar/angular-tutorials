@@ -4,6 +4,7 @@ import { ControlContainer, ControlValueAccessor, FormControl, FormGroup, NG_VALU
 @Component({
   selector: 'pm-password-input',
   templateUrl: './password-input.component.html',
+  styleUrls: ['./password-input.component.scss'],
   providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,

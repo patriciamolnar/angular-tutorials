@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto+Mono:wght@200;400&display=swap');
+@import './shared/variables';
+
+$font: 'Outfit', sans-serif;
+$code: 'Roboto Mono', monospace;
+
+* {
+    font-family: $font;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+pre {
+    background-color: lighten($grey, 5%);
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 1px solid darken($grey, 10%);
+}
+
+code {
+    font-family: $code;
+    font-size: 0.9rem;
+    color: darken($grey, 50%);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.1em;
+}
+
+input {
+    display: block;
+    padding: 0.8em;
+    width: 100%;
+    margin-bottom: 0.2em;
+    border: 1px solid darken($grey, 10%);
+}

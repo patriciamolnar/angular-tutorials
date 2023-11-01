@@ -1,9 +1,27 @@
 <main>
   <h1>Angular Custom Password Field</h1>
 
-  {{ loginForm.value | json }}
+  <h2>Current value of the login form:</h2>
+  <pre><code>{{ loginForm.value | json }}</code></pre>
+  <p>Type into the input fields below to see it change.</p>
+
+  <h2>Login Form</h2>
   <form [formGroup]="loginForm">
-    <input type="text" formControlName="username">
-    <pm-password-input formControlName="password"></pm-password-input>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      autocomplete="email"
+      formControlName="email" 
+      placeholder="Email">
+    <label for="password">Password</label>
+    <pm-password-input 
+      formControlName="password"
+      idAttr="password"
+    >
+    </pm-password-input>
   </form>
 </main>
+<aside>
+  Tutorial available at <a href="https://pmcoding.co.uk">pmCoding</a>.
+</aside>
