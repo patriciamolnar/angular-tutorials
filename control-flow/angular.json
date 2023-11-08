@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "control-flow:build:production"
+              "buildTarget": "control-flow:build:production"
             },
             "development": {
-              "browserTarget": "control-flow:build:development"
+              "buildTarget": "control-flow:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "control-flow:build"
+            "buildTarget": "control-flow:build"
           }
         },
         "test": {
