@@ -1,13 +1,32 @@
+@import './../shared/variables';
+
 .container {
-    max-width: 40em;
+    max-width: 50em;
     margin: auto;
-    margin-top: 5em;
+    margin-top: 2em;
+    border: 1px solid lighten($neutral, 70%);
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+header {
+    background-color: lighten($neutral, 75%);
 }
 
 nav {
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr);
+    display: flex; 
     gap: 0.5em;
-    width: fit-content;
+    text-align: center;
+    margin-top: 0.5em;
+
+    a {
+        flex: 1 1 0;
+    }
+}
+
+footer {
+    background-color: lighten($neutral, 75%);
     text-align: center;
 }

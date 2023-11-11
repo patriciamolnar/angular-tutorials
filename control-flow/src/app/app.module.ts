@@ -21,11 +21,11 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     RouterModule.forRoot(routes),
     IfExampleComponent,
     ForExampleComponent,
-    SwitchExampleComponent,
-    AppRoutingModule
+    SwitchExampleComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

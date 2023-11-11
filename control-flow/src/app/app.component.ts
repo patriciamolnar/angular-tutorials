@@ -6,10 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  readonly options = [
+  readonly navigationOptions = [
     { value: 'if', label: 'If Syntax Example' },
     { value: 'for', label: 'For Syntax Example' },
     { value: 'switch', label: 'Switch syntax Example' },
   ];
-  currentPage = this.options[0].value;
 }

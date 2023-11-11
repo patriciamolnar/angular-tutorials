@@ -1,1 +1,25 @@
-<p>if-example works!</p>
+<h2>Control Flow Syntax: If Statement</h2>
+
+<p>
+    Click on one of the buttons to see different versions of the same recipe. 
+</p>
+
+<p class="select-type">
+    @for(option of recipeOptions; track option) {
+        <button (click)="currentOption = option">
+            {{ option }}
+        </button>
+    }
+</p>
+
+@if(currentOption === 'regular') {
+    <pm-regular-spaghetti></pm-regular-spaghetti>
+} @else if(currentOption === 'vegetarian') {
+    <pm-vegetarian-spaghetti></pm-vegetarian-spaghetti>
+} @else if(currentOption === 'gluten-free') {
+    <pm-gluten-free-spaghetti></pm-gluten-free-spaghetti>
+} @else {
+    <p>
+        No recipe type selected. Choose from the three options above to view recipe. 
+    </p>
+}
