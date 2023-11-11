@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import './shared/variables';
+
+* {
+    padding: 0; 
+    margin: 0; 
+    font-family: $font;
+    box-sizing: border-box;
+}
+
+.link-as-button {
+    background-color: $main;
+    color: $white;
+    text-decoration: none; 
+    padding: 1em;
+    line-height: 1;
+
+    &:hover {
+        background-color: darken($main, 10%);
+    }
+}

@@ -1,0 +1,13 @@
+.container {
+    max-width: 40em;
+    margin: auto;
+    margin-top: 5em;
+}
+
+nav {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+    width: fit-content;
+    text-align: center;
+}

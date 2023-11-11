@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'control-flow';
+  readonly options = [
+    { value: 'if', label: 'If Syntax Example' },
+    { value: 'for', label: 'For Syntax Example' },
+    { value: 'switch', label: 'Switch syntax Example' },
+  ];
+  currentPage = this.options[0].value;
 }
